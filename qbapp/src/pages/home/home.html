@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2 class = "itemcss" text-center >Following are the Questions:</h2>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items; let i = index">
+      <ion-item>
+        <h2>Question: {{item.problem}}</h2>
+        <p>Technology: {{item.technology}}</p>
+        <p>Answer: {{item.answer}}</p>
+      </ion-item>
+      <ion-item-options>
+        <button (click)="editItem(item, i)" ion-button color="primary" icon-start>
+              <ion-icon name="create"></ion-icon>
+              Edit
+        </button>
+        <button (click)="shareItem(item, i)" ion-button color="light" icon-start>
+          <ion-icon name="share"></ion-icon>
+          share
+        </button>
+        <button (click)="removeItem(item._id)" ion-button color="secondary" icon-start>
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+      <ion-fab bottom right>
+        <button (click)="addItem()" ion-fab mini><ion-icon name="add"></ion-icon></button>
+    </ion-fab>  
+</ion-content>
